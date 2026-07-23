@@ -91,6 +91,7 @@ namespace LiteMonitor.src.Plugins
                 // [Fix] Also reset native resolvers that might hold network state or cache
                 CityCodeResolver.ResetClient();
                 CryptoNative.ResetClient();
+                CodexQuotaNative.ResetClient();
 
                 // [Fix] Delay dispose old clients to allow inflight requests to complete (or timeout)
                 // This prevents ObjectDisposedException while ensuring Sockets are eventually released
@@ -485,6 +486,10 @@ namespace LiteMonitor.src.Plugins
                 string s = args.ContainsKey("symbol") ? args["symbol"] : "BTC";
                 string fb = args.ContainsKey("fallback") ? args["fallback"] : "";
                 return await CryptoNative.FetchAsync(s, fb);
+            }
+            else if (uri.Host.Equals("codexquota", StringComparison.OrdinalIgnoreCase))
+            {
+                return await CodexQuotaNative.FetchAsync();
             }
             
             throw new Exception($"Unknown native host: {uri.Host}");

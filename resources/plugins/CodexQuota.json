@@ -1,0 +1,46 @@
+{
+  "id": "CodexQuota",
+  "meta": {
+    "name": "Codex 用量",
+    "version": "1.0",
+    "author": "LiteMonitor",
+    "description": "读取本机 Codex 登录态，显示 5 小时和每周剩余额度及重置倒计时"
+  },
+  "execution": {
+    "type": "chain",
+    "interval": 300,
+    "min_interval": 60,
+    "steps": [
+      {
+        "id": "read_codex_quota",
+        "url": "native://codexquota",
+        "response_format": "json",
+        "cache_minutes": 0,
+        "extract": {
+          "short_display": "short_display",
+          "short_color": "short_color",
+          "weekly_display": "weekly_display",
+          "weekly_color": "weekly_color"
+        }
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "key": "five_hour",
+      "label": "Codex 5小时",
+      "short_label": "C5",
+      "format_val": "{{short_display}}",
+      "color": "{{short_color}}",
+      "unit": ""
+    },
+    {
+      "key": "weekly",
+      "label": "Codex 每周",
+      "short_label": "CW",
+      "format_val": "{{weekly_display}}",
+      "color": "{{weekly_color}}",
+      "unit": ""
+    }
+  ]
+}
