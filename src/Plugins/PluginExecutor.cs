@@ -92,6 +92,7 @@ namespace LiteMonitor.src.Plugins
                 CityCodeResolver.ResetClient();
                 CryptoNative.ResetClient();
                 CodexQuotaNative.ResetClient();
+                KimiQuotaNative.ResetClient();
 
                 // [Fix] Delay dispose old clients to allow inflight requests to complete (or timeout)
                 // This prevents ObjectDisposedException while ensuring Sockets are eventually released
@@ -490,6 +491,10 @@ namespace LiteMonitor.src.Plugins
             else if (uri.Host.Equals("codexquota", StringComparison.OrdinalIgnoreCase))
             {
                 return await CodexQuotaNative.FetchAsync();
+            }
+            else if (uri.Host.Equals("kimiquota", StringComparison.OrdinalIgnoreCase))
+            {
+                return await KimiQuotaNative.FetchAsync();
             }
             
             throw new Exception($"Unknown native host: {uri.Host}");

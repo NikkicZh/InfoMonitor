@@ -1,0 +1,47 @@
+{
+  "id": "KimiQuota",
+  "meta": {
+    "name": "Kimi 用量",
+    "version": "1.0",
+    "author": "LiteMonitor",
+    "description": "复用本机 Kimi Code CLI 登录态，显示 7 天与短期限额窗口的已用比例及重置倒计时"
+  },
+  "execution": {
+    "type": "chain",
+    "interval": 300,
+    "min_interval": 60,
+    "steps": [
+      {
+        "id": "read_kimi_quota",
+        "url": "native://kimiquota",
+        "response_format": "json",
+        "cache_minutes": 0,
+        "extract": {
+          "weekly_display": "weekly_display",
+          "weekly_color": "weekly_color",
+          "window_label": "window_label",
+          "window_display": "window_display",
+          "window_color": "window_color"
+        }
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "key": "weekly",
+      "label": "Kimi 7天用量",
+      "short_label": "K7",
+      "format_val": "{{weekly_display}}",
+      "color": "{{weekly_color}}",
+      "unit": ""
+    },
+    {
+      "key": "window",
+      "label": "Kimi {{window_label}}",
+      "short_label": "K5",
+      "format_val": "{{window_display}}",
+      "color": "{{window_color}}",
+      "unit": ""
+    }
+  ]
+}
