@@ -1,14 +1,19 @@
 [中文文档](./README.md)
 
-# <img src="./resources/screenshots/logo.png"  width="28" style="vertical-align: middle; margin-top: -4px;" /> LiteMonitor
+# <img src="./resources/screenshots/logo.png"  width="28" style="vertical-align: middle; margin-top: -4px;" /> InfoMonitor
+
+> **Project origin:** InfoMonitor is a derivative fork of [Diorser/LiteMonitor](https://github.com/Diorser/LiteMonitor). It retains the upstream Git history, author attribution, and MIT licensing information. This fork is maintained by [NikkicZh](https://github.com/NikkicZh).
+>
+> **Current extensions:** Codex and Kimi Code usage monitoring based on local sign-in state, including quota and reset-time display. Internal program and executable names remain `LiteMonitor` for now to avoid unrelated compatibility changes.
 
 A lightweight and fully customizable **Windows hardware monitor** — track CPU, GPU, memory, disk, and network statistics in real time.
 
-> 🟢 **Download latest version:**  
-> [📦 GitHub Releases → LiteMonitor Latest](https://github.com/Diorser/LiteMonitor/releases/latest)  
-> [⏬ Download Website](https://litemonitor.cn/)
+> 🟢 **Release status:** InfoMonitor is currently provided as a source build.
+> For an upstream stable release without this fork's extensions, visit
+> [LiteMonitor Releases](https://github.com/Diorser/LiteMonitor/releases/latest).
 
-LiteMonitor is a modern **Windows desktop system monitoring tool**.  
+InfoMonitor builds on LiteMonitor as a modern **Windows desktop system monitoring tool**.
+
 It supports horizontal/vertical display, multiple languages, theme switching, transparency, adaptive DPI scaling, and three-level color alerts — in a clean and highly configurable interface.
 
 
@@ -173,13 +178,19 @@ Output:
 ---
 
 ## 📄 License
-Released under the **MIT License** (free for personal & commercial use).
+InfoMonitor follows the upstream project's declared **MIT License**. Use,
+modification, and distribution are permitted provided that copyright and
+license notices are retained.
+
+See [LICENSE](./LICENSE) and [NOTICE](./NOTICE) for attribution details.
 
 ---
 
 ## 💬 Contact
-**Author:** Diorser  
-**GitHub:** https://github.com/Diorser/LiteMonitor
+- **Fork maintainer:** [NikkicZh](https://github.com/NikkicZh)
+- **InfoMonitor:** https://github.com/NikkicZh/InfoMonitor
+- **Upstream author:** Diorser
+- **Upstream project:** https://github.com/Diorser/LiteMonitor
 
 ---
 

@@ -1,0 +1,18 @@
+InfoMonitor
+===========
+
+InfoMonitor is a derivative work based on LiteMonitor:
+https://github.com/Diorser/LiteMonitor
+
+The upstream project identifies Diorser as its author and declares the
+project to be available under the MIT License in its README. The original
+source code and its Git history retain their upstream authorship.
+
+Modifications maintained by NikkicZh include, among other changes:
+
+- Codex usage monitoring based on the local Codex sign-in state.
+- Kimi usage monitoring based on the local Kimi Code CLI sign-in state.
+- InfoMonitor repository branding and derivative-work documentation.
+
+See LICENSE for the license text. Third-party dependencies and bundled
+components remain subject to their respective licenses.
