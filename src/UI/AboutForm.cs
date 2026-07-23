@@ -17,9 +17,8 @@ namespace LiteMonitor
             bool isZh = LanguageManager.CurrentLang == "zh";
 
             string strTitle = LanguageManager.T("Menu.About");
-            string strDesc = isZh ? "一款开源的轻量级硬件监控软件。\n© 2025 Diorser / LiteMonitor Project" 
-                                  : "A lightweight desktop hardware monitor.\n© 2025 Diorser / LiteMonitor Project";
-            string strWebPrefix = isZh ? "官网" : "Website";
+            string strDesc = isZh ? "基于 LiteMonitor，增加 Codex/Kimi 用量监控。\n© 2025-2026 Diorser、贡献者与 NikkicZh"
+                                  : "LiteMonitor with Codex/Kimi usage monitoring.\n© 2025-2026 Diorser, contributors, and NikkicZh";
             string strUpdate = LanguageManager.T("Menu.CheckUpdate");
             string strClose = LanguageManager.T("Menu.OK");
             string strBug = LanguageManager.T("Menu.Feedback");
@@ -43,7 +42,7 @@ namespace LiteMonitor
             // === 标题 ===
             var lblTitle = new Label
             {
-                Text = "⚡️LiteMonitor",
+                Text = "⚡️InfoMonitor",
                 Font = new Font(theme.Font.Family, 14, FontStyle.Bold),
                 ForeColor = ThemeManager.ParseColor(theme.Color.TextTitle),
                 AutoSize = true,
@@ -79,7 +78,7 @@ namespace LiteMonitor
             // === 官网链接 ===
             var websiteLink = new LinkLabel
             {
-                Text = $"{strWebPrefix}: LiteMonitor.cn",
+                Text = "InfoMonitor: github.com/NikkicZh/InfoMonitor",
                 LinkColor = Color.SkyBlue,
                 ActiveLinkColor = Color.LightSkyBlue,
                 VisitedLinkColor = Color.DeepSkyBlue,
@@ -90,7 +89,7 @@ namespace LiteMonitor
             {
                 try
                 {
-                    Process.Start(new ProcessStartInfo("https://LiteMonitor.cn")
+                    Process.Start(new ProcessStartInfo("https://github.com/NikkicZh/InfoMonitor")
                     { UseShellExecute = true });
                 }
                 catch { }
@@ -99,7 +98,7 @@ namespace LiteMonitor
             // === GitHub 链接 ===
             var githubLink = new LinkLabel
             {
-                Text = "GitHub: github.com/Diorser/LiteMonitor",
+                Text = "Upstream: github.com/Diorser/LiteMonitor",
                 LinkColor = Color.SkyBlue,
                 ActiveLinkColor = Color.LightSkyBlue,
                 VisitedLinkColor = Color.DeepSkyBlue,
@@ -135,7 +134,7 @@ namespace LiteMonitor
             {
                 try
                 {
-                    Process.Start(new ProcessStartInfo("https://github.com/Diorser/LiteMonitor/issues")
+                    Process.Start(new ProcessStartInfo("https://github.com/NikkicZh/InfoMonitor/issues")
                     { UseShellExecute = true });
                 }
                 catch { }

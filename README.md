@@ -11,7 +11,7 @@
 A lightweight and customizable desktop hardware monitoring tool — real-time monitoring of system performance such as CPU, GPU, memory, disk, and network.
 
 支持横/竖屏/任务栏/网页显示、主题切换、多语言、透明度显示、三色报警等，界面简洁且高度可配置 。
-> 🟢 **版本说明：** InfoMonitor 当前以源码构建方式提供；如需未包含本分支扩展的上游稳定版，可前往 [LiteMonitor Releases](https://github.com/Diorser/LiteMonitor/releases/latest)。
+> 🟢 **下载最新版：** [InfoMonitor Releases](https://github.com/NikkicZh/InfoMonitor/releases/latest)
 
 > 🟢 已支持【内存清理】和【自定义插件】功能，详见：[插件开发指南（无需编程）](./resources/plugins/PLUGIN_DEV_GUIDE.md#🔌-plugin-system)
 
@@ -38,7 +38,7 @@ A lightweight and customizable desktop hardware monitoring tool — real-time mo
 
 
 
-> 💡 LiteMonitor 持续完善中，如需更多监控项或功能支持，欢迎在 [GitHub Issues](https://github.com/Diorser/LiteMonitor/issues) 中反馈建议！
+> 💡 InfoMonitor 持续完善中，如需更多监控项或功能支持，欢迎在 [GitHub Issues](https://github.com/NikkicZh/InfoMonitor/issues) 中反馈建议！
 
 ---
 
@@ -75,7 +75,7 @@ A lightweight and customizable desktop hardware monitoring tool — real-time mo
 | 👆 鼠标穿透模式 | 启用后，窗口不拦截鼠标事件，可直接操作背后应用。 |
 | 🎨 UI 与主题即时切换 | 切换主题/语言后界面即时刷新，无需重启。 |
 | 🔍 数值智能格式化 | 自动格式化单位与小数位，横屏模式支持智能“/s”去除、>=100 自动取整等。 |
-| 🔄 自动更新检测 | 启动时静默检查新版本，手动检查时展示弹窗。支持国内与 GitHub 双源。 |
+| 🔄 自动更新检测 | 启动时静默检查 InfoMonitor 新版本，手动检查时展示弹窗。 |
 | 🚀 开机自启 | 通过计划任务方式实现管理员级别自启动。 |
 | 📂 配置文件存储 | 所有设置实时写入 `settings.json`，支持迁移与备份。 |
 
@@ -83,9 +83,10 @@ A lightweight and customizable desktop hardware monitoring tool — real-time mo
 
 ## 📦 安装与使用
 
-1. 前往 [Releases 页面](https://github.com/Diorser/LiteMonitor/releases) 下载最新版压缩包  
-2. 解压后运行 `LiteMonitor.exe`  
-3. 程序会自动根据系统语言加载对应语言文件
+1. 安装 [.NET 8 Desktop Runtime x64](https://dotnet.microsoft.com/download/dotnet/8.0)
+2. 前往 [InfoMonitor Releases](https://github.com/NikkicZh/InfoMonitor/releases) 下载最新版压缩包
+3. 解压后运行 `LiteMonitor.exe`
+4. 在“设置 → 插件”中启用 `Codex 用量` 或 `Kimi 用量`
 
 ---
 
@@ -151,7 +152,7 @@ A lightweight and customizable desktop hardware monitoring tool — real-time mo
 | `LanguageManager.cs` | 多语言加载、扁平化 Key 访问 |
 | `HardwareMonitor.cs` | 采集 CPU/GPU/MEM/NET/DISK 信息；自动/手动设备选择 |
 | `AutoStart.cs` | 管理计划任务，实现开机自启 |
-| `UpdateChecker.cs` | GitHub + 国内双源版本检测 |
+| `UpdateChecker.cs` | InfoMonitor GitHub Release 版本检测 |
 | `AboutForm.cs` | 关于窗口 |
 
 ---
@@ -165,8 +166,8 @@ A lightweight and customizable desktop hardware monitoring tool — real-time mo
 
 ### 编译命令
 ```bash
-git clone https://github.com/Diorser/LiteMonitor.git
-cd LiteMonitor
+git clone https://github.com/NikkicZh/InfoMonitor.git
+cd InfoMonitor
 dotnet build -c Release
 ```
 

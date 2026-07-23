@@ -8,9 +8,8 @@
 
 A lightweight and fully customizable **Windows hardware monitor** — track CPU, GPU, memory, disk, and network statistics in real time.
 
-> 🟢 **Release status:** InfoMonitor is currently provided as a source build.
-> For an upstream stable release without this fork's extensions, visit
-> [LiteMonitor Releases](https://github.com/Diorser/LiteMonitor/releases/latest).
+> 🟢 **Download the latest version:**
+> [InfoMonitor Releases](https://github.com/NikkicZh/InfoMonitor/releases/latest).
 
 InfoMonitor builds on LiteMonitor as a modern **Windows desktop system monitoring tool**.
 
@@ -59,7 +58,7 @@ It supports horizontal/vertical display, multiple languages, theme switching, tr
 | 👆 **Click-Through Mode** | Allows mouse interactions to pass through the window. |
 | 🎨 **Instant Theme/Language Switching** | No restart required; UI updates immediately. |
 | 🔍 **Smart Value Formatting** | Automatic unit conversion, adaptive decimals; horizontal mode removes `/s`, trims decimals for large values. |
-| 🔄 **Auto Update Check** | Silent background check on startup; popup only when triggered manually. |
+| 🔄 **Auto Update Check** | Checks InfoMonitor releases silently on startup; popup only when triggered manually. |
 | 🚀 **Auto Startup** | Uses Windows Task Scheduler (supports elevated run). |
 | 📂 **Persistent Settings** | All preferences saved to `settings.json` in real time. |
 
@@ -67,9 +66,10 @@ It supports horizontal/vertical display, multiple languages, theme switching, tr
 
 ## 📦 Installation
 
-1. Download from [GitHub Releases](https://github.com/Diorser/LiteMonitor/releases)
-2. Extract and run `LiteMonitor.exe`
-3. The app automatically loads the correct theme & language
+1. Install the [.NET 8 Desktop Runtime x64](https://dotnet.microsoft.com/download/dotnet/8.0)
+2. Download from [InfoMonitor Releases](https://github.com/NikkicZh/InfoMonitor/releases)
+3. Extract and run `LiteMonitor.exe`
+4. Enable `Codex 用量` or `Kimi 用量` under Settings → Plugins
 
 ---
 
@@ -151,7 +151,7 @@ Example:
 | `LanguageManager.cs` | Localization loader with flattened key access |
 | `HardwareMonitor.cs` | Collects CPU/GPU/MEM/NET/DISK data; smart device auto-selection |
 | `AutoStart.cs` | Manages Windows Task Scheduler startup task |
-| `UpdateChecker.cs` | GitHub + China mirror version checking |
+| `UpdateChecker.cs` | InfoMonitor GitHub Release version checking |
 | `AboutForm.cs` | About dialog |
 
 ---
@@ -165,8 +165,8 @@ Example:
 
 ### Build
 ```bash
-git clone https://github.com/Diorser/LiteMonitor.git
-cd LiteMonitor
+git clone https://github.com/NikkicZh/InfoMonitor.git
+cd InfoMonitor
 dotnet build -c Release
 ```
 

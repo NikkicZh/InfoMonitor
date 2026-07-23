@@ -6,7 +6,6 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Windows.Forms;
-using System.Net.Security;
 using LiteMonitor.src.Core;
 
 using System.IO;
@@ -16,8 +15,8 @@ namespace LiteMonitor
 {
     /// <summary>
     /// LiteMonitor 自动更新模块（最终完整版）
-    /// - version.json 支持国内 / GitHub 两源自动 fallback
-    /// - ZIP 下载支持两源测速自动选择最快
+    /// - version.json 从 InfoMonitor 仓库读取
+    /// - ZIP 从 InfoMonitor GitHub Release 下载
     /// - ZIP 下载完成后，主程序抢先更新 Updater.exe，防止自更新死锁
     /// - CheckAsync() 可被右键菜单直接调用
     /// </summary>
@@ -26,47 +25,26 @@ namespace LiteMonitor
         // 全局 HttpClient（降低系统资源消耗）
         private static readonly HttpClient http = new HttpClient(new SocketsHttpHandler
         {
-            PooledConnectionLifetime = TimeSpan.FromMinutes(2), // 保持连接复用
-            SslOptions = new SslClientAuthenticationOptions
-            {
-                // 强制信任所有证书（解决用户证书报错问题）
-                RemoteCertificateValidationCallback = (sender, cert, chain, sslPolicyErrors) => true
-            }
+            PooledConnectionLifetime = TimeSpan.FromMinutes(2) // 保持连接复用，并使用系统默认 TLS 证书校验
         })
         {
             Timeout = TimeSpan.FromSeconds(6) // 适当放宽超时时间，避免网络波动导致失败
         };
 
         // ========================================================
-        // 【1】两个 version.json 源（自动 fallback）
+        // 【1】InfoMonitor 版本信息源
         // ========================================================
         private static readonly string[] VersionJsonUrls =
         {
-             // 国官网源
-            "https://litemonitor.cn/update/version.json",
-            
-            // Gitee RAW（自动 fallback 使用）
-             "https://gitee.com/Diorser/LiteMonitor/raw/master/resources/version.json",
-
-            // GitHub RAW（自动 fallback 使用）
-             "https://raw.githubusercontent.com/Diorser/LiteMonitor/master/resources/version.json",
-             
+            "https://raw.githubusercontent.com/NikkicZh/InfoMonitor/master/resources/version.json"
         };
 
         // ========================================================
-        // 【2】两个 ZIP 下载镜像（测速自动选择最快）
+        // 【2】InfoMonitor Release 下载源
         // ========================================================
         private static readonly string[] Mirrors =
         {
-            
-            // Gitee Releases
-            "https://gitee.com/Diorser/LiteMonitor/releases/download/v{0}/LiteMonitor_v{0}-win-x64.zip",
-            // 国内 CDN
-            "https://litemonitor.cn/update/LiteMonitor_v{0}-win-x64.zip",
-            // Github Releases
-            "https://github.com/Diorser/LiteMonitor/releases/download/v{0}/LiteMonitor_v{0}-win-x64.zip",
-
-            
+            "https://github.com/NikkicZh/InfoMonitor/releases/download/v{0}/InfoMonitor_v{0}-win-x64.zip"
         };
 
         /// <summary>
@@ -136,8 +114,8 @@ namespace LiteMonitor
                     var context = new DownloadContext
                     {
                         Title = isZh ? "发现新版本！" : "New Version!",
-                        VersionLabel = $"⚡️LiteMonitor_v{latest}",
-                        Description = $"更新日志：\n{changelog} \n更新日期：\n{releaseDate}\n\n官网：https://litemonitor.cn \nGitHub：https://github.com/Diorser/LiteMonitor",
+                        VersionLabel = $"⚡️InfoMonitor_v{latest}",
+                        Description = $"更新日志：\n{changelog} \n更新日期：\n{releaseDate}\n\nGitHub：https://github.com/NikkicZh/InfoMonitor",
                         Urls = sortedUrls.ToArray(),
                         SavePath = Path.Combine(AppContext.BaseDirectory, "resources", "update.zip"),
                         ActionButtonText = "Update",
